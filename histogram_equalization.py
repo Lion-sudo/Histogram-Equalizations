@@ -108,8 +108,7 @@ def main():
         else:
             print(INVALID_MSG)
 
-    # save result and grayscale to see differences
-    cv2.imwrite(GRAYSCALE_PATH, image)
+    # save result
     cv2.imwrite(RESULT_PATH, equalized_image)
 
 
