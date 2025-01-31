@@ -3,9 +3,9 @@ import cv2
 
 
 # Constants
-IMAGE_PATH = "Images/fire_work.jpg"
+IMAGE_PATH = "Images/balcony.jpg"
 GRAYSCALE_PATH = "Output/grayscale.jpg"
-RESULT_PATH = "Output/fire_work_equalized.jpg"
+RESULT_PATH = "Output/output.jpg"
 MAX_GRAY_VALUE = 255
 NUMBER_OF_GRAY_VALUES = 256
 ONE_SHADE_OF_GRAY_EXCEPTION = "Image only has one shade of gray, can't apply histogram equalization."
