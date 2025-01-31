@@ -3,27 +3,41 @@ import cv2
 
 
 # Constants
-IMAGE_PATH = "Images/balcony.jpg"
-GRAYSCALE_PATH = "Output/grayscale.jpg"
-RESULT_PATH = "Output/output.jpg"
-MAX_GRAY_VALUE = 255
-NUMBER_OF_GRAY_VALUES = 256
 ONE_SHADE_OF_GRAY_EXCEPTION = "Image only has one shade of gray, can't apply histogram equalization."
 WRONG_INPUT_PATH_EXCEPTION = "Couldn't read the input image."
 WRONG_NUMBER_EXCEPTION = "Invalid choice! Please select 1 for Grayscale, 2 for LAB, or 3 for HSV equalization."
+EMPTY_HISTOGRAM_EXCEPTION = "Image is empty."
 INPUT_MSG = "Enter the number corresponding to your choice: "
 EXIT_MSG = "Exiting the program..."
+SUCCESS_MSG = "Successfully created the output image."
 INVALID_MSG = "Invalid choice! Please select 1 for Grayscale, 2 for LAB, 3 for HSV, or 4 to Exit."
+INSTRUCTIONS = "Choose the histogram equalization type:"
+OPTIONS = "1: Grayscale \n2: LAB \n3: HSV \n4: Exit"
+MAX_GRAY_VALUE = 255
+NUMBER_OF_GRAY_VALUES = 256
+SUCCESS_CODE = 1
+EMPTY_HISTOGRAM_CODE = -1
 GRAYSCALE_EQUALIZATION_METHOD = "1"
 LAB_EQUALIZATION_METHOD = "2"
 HSV_EQUALIZATION_METHOD = "3"
 EXIT_CHOICE = "4"
+# Paths
+IMAGE_PATH = "input.jpg"
+RESULT_PATH = "output.jpg"
 
 
 # Different histogram equalization functions
+def extract_minimal_shade(hist):
+    for i in range(NUMBER_OF_GRAY_VALUES):
+        if hist[i] > 0:
+            return i
+    return EMPTY_HISTOGRAM_CODE
+
+
 def histogram_equalization(image, gray=False):
     if gray:
         image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+
     # 1) compute the cumulative image histogram
     hist, _ = np.histogram(image.flatten(), bins=NUMBER_OF_GRAY_VALUES, range=[0, NUMBER_OF_GRAY_VALUES])
     hist = np.cumsum(hist)
@@ -32,11 +46,11 @@ def histogram_equalization(image, gray=False):
     total_pixels = image.size
     hist = hist / total_pixels  # divide by total number of pixels
 
-    non_zero_hist = np.nonzero(hist)
-    min_gray  = np.min(non_zero_hist)  # first gray shade with >= 1 pixels
+    min_gray = extract_minimal_shade(hist)  # first gray shade with >= 1 pixels
+    if min_gray == EMPTY_HISTOGRAM_CODE:
+        raise Exception(EMPTY_HISTOGRAM_EXCEPTION)
     min_value = hist[min_gray]
-    max_gray = np.max(non_zero_hist)  # last gray shade with >= 1 pixels
-    max_value = hist[max_gray]
+    max_value = hist[-1]
 
     if min_value == max_value:
         raise Exception(ONE_SHADE_OF_GRAY_EXCEPTION)
@@ -46,7 +60,6 @@ def histogram_equalization(image, gray=False):
 
     # 3) map the intensity values of the image
     equalized_image = hist[image]
-
     return equalized_image
 
 
@@ -77,11 +90,9 @@ def apply_hsv_equalization(image):
 
 
 def print_options():
-    print("Choose the histogram equalization type:")
-    print("1: Grayscale")
-    print("2: LAB")
-    print("3: HSV")
-    print("4: Exit")
+    print(INSTRUCTIONS)
+    print(OPTIONS)
+
 
 def main():
     # read image
@@ -104,16 +115,17 @@ def main():
             break
         elif choice == EXIT_CHOICE:
             print(EXIT_MSG)
-            return  # Exit the program
+            return None
         else:
             print(INVALID_MSG)
 
     # save result
     cv2.imwrite(RESULT_PATH, equalized_image)
-
+    return SUCCESS_CODE
 
 if __name__ == "__main__":
     try:
-        main()
+        if main():
+            print(SUCCESS_MSG)
     except Exception as exception:
         print(exception)
