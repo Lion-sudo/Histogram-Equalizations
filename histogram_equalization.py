@@ -21,9 +21,10 @@ EXIT_CHOICE = "4"
 
 
 # Different histogram equalization functions
-def grayscale_histogram_equalization(image):
-    # 1) convert to grayscale and compute the cumulative image histogram
-    image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+def histogram_equalization(image, gray=False):
+    if gray:
+        image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+    # 1) compute the cumulative image histogram
     hist, _ = np.histogram(image.flatten(), bins=NUMBER_OF_GRAY_VALUES, range=[0, NUMBER_OF_GRAY_VALUES])
     hist = np.cumsum(hist)
 
@@ -55,7 +56,7 @@ def apply_lab_equalization(image):
     l, a, b = cv2.split(lab_image)
 
     # 2) equalize the L channel and merge the channels
-    equalized_l = grayscale_histogram_equalization(l)
+    equalized_l = histogram_equalization(l)
     equalized_lab_image = cv2.merge([equalized_l, a, b])
 
     # 3) convert back to BGR color and return
@@ -68,7 +69,7 @@ def apply_hsv_equalization(image):
     h, s, v = cv2.split(hsv_image)
 
     # 2) equalize the V channeland merge the channels
-    equalized_v = grayscale_histogram_equalization(v)
+    equalized_v = histogram_equalization(v)
     equalized_hsv_image = cv2.merge([h, s, equalized_v])
 
     # 3) convert back to BGR color and return
@@ -92,9 +93,8 @@ def main():
     print_options()
     while True:
         choice = input(INPUT_MSG)
-
         if choice == GRAYSCALE_EQUALIZATION_METHOD:
-            equalized_image = grayscale_histogram_equalization(image)
+            equalized_image = histogram_equalization(image, gray=True)
             break
         elif choice == LAB_EQUALIZATION_METHOD:
             equalized_image = apply_lab_equalization(image)
