@@ -7,7 +7,7 @@ import equalizerFactory
 WRONG_INPUT_PATH_EXCEPTION = "Couldn't read the input image."
 EXIT_MSG = "Exiting the program..."
 SUCCESS_MSG = "Successfully created the desired output image."
-INVALID_MSG = "Invalid choice! Please select 1 to continue, 2 to Exit."
+INVALID_MSG = "Invalid choice! \nPlease select 1 to continue, 2 to Exit."
 DESIRE_TO_CONTINUE = "Would you like to use another histogram equalization method?"
 DESIRE_OPTIONS = "1: Yes \n2: No"
 
