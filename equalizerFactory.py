@@ -1,3 +1,4 @@
+# Import all the equalizers
 from EqualizerClasses.grayscale_histogram_equalizer import GrayscaleHistogramEqualizer
 from EqualizerClasses.lab_histogram_equalizer import LabHistogramEqualizer
 from EqualizerClasses.hsv_histogram_equalizer import HsvHistogramEqualizer
