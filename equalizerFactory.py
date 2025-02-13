@@ -13,7 +13,7 @@ OPTIONS = "1: Grayscale \n2: LAB \n3: HSV \n4: YCbCr \n5: HSL \n6: Exit"
 INPUT_MSG = "Enter the number corresponding to your choice: "
 INVALID_MSG = ("Invalid choice! \n"
                "Please select 1 for Grayscale, 2 for LAB, 3 for HSV, 4 for YCbCr, 5 for HSL "
-               "or 6 to Exit.")
+               "or 6 to exit.")
 EXIT_MSG = "Exiting the program..."
 
 # Codes
