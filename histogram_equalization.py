@@ -10,11 +10,13 @@ SUCCESS_MSG = "Successfully created the desired output image."
 INVALID_MSG = "Invalid choice! Please select 1 to continue, 2 to Exit."
 DESIRE_TO_CONTINUE = "Would you like to use another histogram equalization method?"
 DESIRE_OPTIONS = "1: Yes \n2: No"
+
 # Variables
 CONTINUE = "1"
 FINISH = "2"
 CONTINUE_WORK = False
 FINISH_WORK = True
+
 # Paths
 IMAGE_PATH = "input.jpg"
 GRAYSCALE_RESULT_PATH = "grayscale_output.jpg"
