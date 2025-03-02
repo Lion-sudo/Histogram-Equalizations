@@ -74,7 +74,7 @@ def select_image():
 def main(image, input_id):
     equalizer = equalizer_factory.create_histogram_equalizer()
     if not equalizer:
-        return FINISH_WORK
+        return FINISH_WORK, NO_NEED_TO_LOAD_IMAGE
     equalizer.equalize(image, input_id)
     return ask_if_user_wants_to_continue()
 
