@@ -7,7 +7,7 @@ SUCCESS_MSG = "Finished LAB histogram equalization successfully."
 
 
 class LabHistogramEqualizer(AbstractHistogramEqualizer):
-    def equalize(self, image):
+    def equalize(self, image, input_id):
         # 1) convert to LAB color and split the channels
         lab_image = cv2.cvtColor(image, cv2.COLOR_BGR2LAB)
         l, a, b = cv2.split(lab_image)
@@ -17,5 +17,5 @@ class LabHistogramEqualizer(AbstractHistogramEqualizer):
         equalized_lab_image = cv2.merge([equalized_l, a, b])
 
         # 3) convert back to BGR color and save the image
-        cv2.imwrite(LAB_RESULT_PATH, cv2.cvtColor(equalized_lab_image, cv2.COLOR_LAB2BGR))
+        cv2.imwrite(f"image_{input_id}_{LAB_RESULT_PATH}", cv2.cvtColor(equalized_lab_image, cv2.COLOR_LAB2BGR))
         print(SUCCESS_MSG)

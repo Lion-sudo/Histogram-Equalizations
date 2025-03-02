@@ -43,6 +43,6 @@ class AbstractHistogramEqualizer(metaclass=abc.ABCMeta):
         return equalized_image
 
     @abc.abstractmethod
-    def equalize(self, image):
+    def equalize(self, image, input_id):
         pass
 

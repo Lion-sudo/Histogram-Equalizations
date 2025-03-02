@@ -6,14 +6,15 @@ import equalizer_factory
 
 # Constants
 # String messages
-PROVIDE_INPUT_PATH = "Hello! Please provide the path to the image you want to use :) \n "
+GREET_USER = "Hello :)"
+PROVIDE_INPUT_PATH = "Please provide the path to the image you want to use. \n "
 WRONG_INPUT_PATH_EXCEPTION = "Couldn't read the input image. Please make sure that the path given is correct."
 EXIT_MSG = "Exiting the program..."
 INVALID_CONTINUE_MSG = "Invalid choice! \nPlease select 1 to continue, 2 to exit."
 INVALID_CHANGE_IMAGE_MSG = "Invalid choice! \nPlease select 1 to load a new image, 2 to use the current one."
-DESIRE_TO_CHANGE_IMAGE = "Would you like to load a new picture or use the current one again?"
+DESIRE_TO_CHANGE_IMAGE = "Would you like to load a new picture or use the current one?"
 CHANGE_IMAGE_OPTIONS = "1: Use another picture \n2: Use the current picture"
-DESIRE_TO_CONTINUE = "Would you like to use another histogram equalization method?"
+DESIRE_TO_CONTINUE = "Would you like to use a different color space / image?"
 CONTINUE_OPTIONS = "1: Yes \n2: No"
 
 # Variables
@@ -70,22 +71,23 @@ def select_image():
 
 
 # Main function
-def main(image):
+def main(image, input_id):
     equalizer = equalizer_factory.create_histogram_equalizer()
     if not equalizer:
         return FINISH_WORK
-    equalizer.equalize(image)
+    equalizer.equalize(image, input_id)
     return ask_if_user_wants_to_continue()
 
 
 if __name__ == "__main__":
     try:
-        should_load_image = True
-        finished = False
-        image = None
+        print(GREET_USER)
+        should_load_image, finished = True, False
+        image, input_id = None, 0
         while not finished:
             if should_load_image:
                 image = select_image()
-            finished, should_load_image = main(image)
+                input_id += 1
+            finished, should_load_image = main(image, input_id)
     except Exception as exception:
         print(exception)
