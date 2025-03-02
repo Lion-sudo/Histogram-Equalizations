@@ -1,5 +1,5 @@
 import cv2
-import equalizerFactory
+import equalizer_factory
 
 
 # Constants
