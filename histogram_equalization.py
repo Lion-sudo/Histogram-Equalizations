@@ -43,7 +43,7 @@ def main():
     image = cv2.imread(IMAGE_PATH)
     if image is None:
         raise Exception(WRONG_INPUT_PATH_EXCEPTION)
-    equalizer = equalizerFactory.create_histogram_equalizer()
+    equalizer = equalizer_factory.create_histogram_equalizer()
     if not equalizer:
         return FINISH_WORK
     equalizer.equalize(image)
