@@ -7,14 +7,14 @@ import equalizer_factory
 # Constants
 # String messages
 GREET_USER = "Hello :)"
-PROVIDE_INPUT_PATH = "Please provide the path to the image you want to use. \n "
+PROVIDE_INPUT_PATH = "Please provide the path to the image you want to use. \n"
 WRONG_INPUT_PATH_EXCEPTION = "Couldn't read the input image. Please make sure that the path given is correct."
 EXIT_MSG = "Exiting the program..."
 INVALID_CONTINUE_MSG = "Invalid choice! \nPlease select 1 to continue, 2 to exit."
-INVALID_CHANGE_IMAGE_MSG = "Invalid choice! \nPlease select 1 to load a new image, 2 to use the current one."
-DESIRE_TO_CHANGE_IMAGE = "Would you like to load a new picture or use the current one?"
-CHANGE_IMAGE_OPTIONS = "1: Use another picture \n2: Use the current picture"
-DESIRE_TO_CONTINUE = "Would you like to use a different color space / image?"
+INVALID_CHANGE_IMAGE_MSG = "Invalid choice! \nPlease select 1 to load a new image, 2 to use the current image."
+DESIRE_TO_CHANGE_IMAGE = "\nWould you like to load a new image or use the current image?"
+CHANGE_IMAGE_OPTIONS = "1: Use another image \n2: Use the current image"
+DESIRE_TO_CONTINUE = "\nWould you like to use a different color space / image?"
 CONTINUE_OPTIONS = "1: Yes \n2: No"
 
 # Variables

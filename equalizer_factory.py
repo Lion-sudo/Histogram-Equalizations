@@ -8,7 +8,7 @@ from EqualizerClasses.hsl_histogram_equalizer import HSLHistogramEqualizer
 
 # Constants
 # String messages
-INSTRUCTIONS = "Choose the histogram equalization color space:"
+INSTRUCTIONS = "\nChoose the histogram equalization color space:"
 OPTIONS = "1: Grayscale \n2: LAB \n3: HSV \n4: YCbCr \n5: HSL \n6: Exit"
 INPUT_MSG = "Enter the number corresponding to your choice: "
 INVALID_MSG = ("Invalid choice! \n"
