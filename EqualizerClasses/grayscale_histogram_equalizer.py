@@ -1,6 +1,7 @@
 import cv2
 from EqualizerClasses.abstract_histogram_equalizer import AbstractHistogramEqualizer
 
+
 # Constants
 GRAYSCALE_RESULT_PATH = "grayscale_output.jpg"
 SUCCESS_MSG = "Finished grayscale histogram equalization successfully."

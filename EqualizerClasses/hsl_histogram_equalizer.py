@@ -1,6 +1,7 @@
 import cv2
 from EqualizerClasses.abstract_histogram_equalizer import AbstractHistogramEqualizer
 
+
 # Constants
 HSL_OUTPUT_PATH = "hsl_output.jpg"
 SUCCESS_MSG = "Finished HSL histogram equalization successfully."

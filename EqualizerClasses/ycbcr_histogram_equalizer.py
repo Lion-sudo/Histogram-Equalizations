@@ -1,6 +1,7 @@
 import cv2
 from EqualizerClasses.abstract_histogram_equalizer import AbstractHistogramEqualizer
 
+
 # Constants
 YCBCR_OUTPUT_PATH = "ycbcr_output.jpg"
 SUCCESS_MSG = "Finished YCbCr histogram equalization successfully."
