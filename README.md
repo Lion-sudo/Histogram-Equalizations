@@ -82,16 +82,16 @@ Would you like to use a different color space / image?
 1: Yes
 2: No
 ```
-If you choose **2**, the program will exit.
-
-If you choose **1**, you'll then be asked:
+- If you choose **2**, the program will exit.
+- If you choose **1**, you'll then be asked:
 
 ```yaml
 Would you like to load a new image or use the current image?
 1: Use another image
 2: Use the current image
 ```
-
+- If you choose **1** (Use another image), the program will take you back to **Step 1** to provide a new image path.
+- If you choose **2** (Use the current image), the program will take you back to **Step 2** to choose a new color space for equalization.
 
 ### Output Image Naming Convention
 
