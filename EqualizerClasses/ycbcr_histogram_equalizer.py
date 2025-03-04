@@ -6,6 +6,7 @@ from EqualizerClasses.abstract_histogram_equalizer import AbstractHistogramEqual
 YCBCR_OUTPUT_PATH = "ycbcr_output.jpg"
 SUCCESS_MSG = "Finished YCbCr histogram equalization successfully."
 
+
 class YCBCRHistogramEqualizer(AbstractHistogramEqualizer):
     def equalize(self, image, input_id):
         # 1) convert the color space to YCrCb and split the color channels

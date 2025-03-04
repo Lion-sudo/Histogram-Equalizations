@@ -6,6 +6,7 @@ from EqualizerClasses.abstract_histogram_equalizer import AbstractHistogramEqual
 HSL_OUTPUT_PATH = "hsl_output.jpg"
 SUCCESS_MSG = "Finished HSL histogram equalization successfully."
 
+
 class HSLHistogramEqualizer(AbstractHistogramEqualizer):
     def equalize(self, image, input_id):
         # 1) convert the image to HSL and split the channels

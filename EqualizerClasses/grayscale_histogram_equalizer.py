@@ -6,6 +6,7 @@ from EqualizerClasses.abstract_histogram_equalizer import AbstractHistogramEqual
 GRAYSCALE_RESULT_PATH = "grayscale_output.jpg"
 SUCCESS_MSG = "Finished grayscale histogram equalization successfully."
 
+
 class GrayscaleHistogramEqualizer(AbstractHistogramEqualizer):
     def equalize(self, image, input_id):
         # 1) convert to grayscale
