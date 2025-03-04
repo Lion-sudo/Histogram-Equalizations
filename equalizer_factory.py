@@ -9,12 +9,10 @@ from EqualizerClasses.hsl_histogram_equalizer import HSLHistogramEqualizer
 # Constants
 # String messages
 INSTRUCTIONS = "\nChoose the histogram equalization color space:"
-OPTIONS = "1: Grayscale \n2: LAB \n3: HSV \n4: YCbCr \n5: HSL \n6: Exit"
-INPUT_MSG = "Enter the number corresponding to your choice: "
-INVALID_MSG = ("Invalid choice! \n"
-               "Please select 1 for Grayscale, 2 for LAB, 3 for HSV, 4 for YCbCr, 5 for HSL "
-               "or 6 to exit.")
-EXIT_MSG = "Exiting the program..."
+OPTIONS = "1: Grayscale \n2: LAB \n3: HSV \n4: YCbCr \n5: HSL \n6: Exit the program"
+INPUT_MSG = "\nEnter the number corresponding to your choice: "
+INVALID_MSG = "\nInvalid choice!"
+EXIT_MSG = "\nExiting the program... Goodbye!"
 
 # Codes
 GRAYSCALE_EQUALIZATION_METHOD = "1"
@@ -55,4 +53,4 @@ def create_histogram_equalizer():
                 return None
 
             case _:
-                print(INVALID_MSG)
+                print(INVALID_MSG, end="")
