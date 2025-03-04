@@ -9,6 +9,21 @@ Each equalizer is designed using **Object-Oriented Programming (OOP)** principle
 
 ---
 
+## 🌟 Example Outputs
+
+<h4 align="center">Original Image vs Processed Image Using Grayscale color space</h4>
+
+<img src="Images/nature.jpg" width="400" /> <img src="Images/image_3_grayscale_output.jpg" width="400" />
+
+<h4 align="center">Original Image vs Processed Image Using YCbCr color space</h4>
+
+<img src="Images/stairs.jpg" width="400" /> <img src="Images/image_1_ycbcr_output.jpg" width="400" />
+
+<h4 align="center">Original Image vs Processed Image Using HSV color space</h4>
+
+<img src="Images/tokyo_night.jpg" width="400" /> <img src="Images/image_2_hsv_output.jpg" width="400" />
+
+---
 ## ✨ Features
 - **Grayscale** Histogram Equalization  
 - **LAB** Histogram Equalization  
@@ -70,28 +85,25 @@ Choose the histogram equalization color space:
 3: HSV
 4: YCbCr
 5: HSL
-6: Exit
+6: Exit the program
 ```
 
 ### Step 3: Continue or exit
 
-After processing, you will be asked whether you'd like to continue or exit the program:
+After processing, you'll be asked whether you want to continue or exit the program:
 
 ```yaml
-Would you like to use a different color space / image?
-1: Yes
-2: No
+Would you like to continue or exit?
+1: Continue using the current image
+2: Load a new image
+3: Exit the program
 ```
-- If you choose **2**, the program will exit.
-- If you choose **1**, you'll then be asked:
 
-```yaml
-Would you like to load a new image or use the current image?
-1: Use another image
-2: Use the current image
-```
-- If you choose **1** (Use another image), the program will take you back to **Step 1** to provide a new image path.
-- If you choose **2** (Use the current image), the program will take you back to **Step 2** to choose a new color space for equalization.
+- If you choose **1**, you'll go back to Step 2 using the same image.
+- If you choose **2**, you'll return to Step 1 to provide a new image path.
+- If you choose **3**, the program will exit.
+
+The program keeps running until you choose to exit.
 
 ### Output Image Naming Convention
 
@@ -119,23 +131,6 @@ You can continue experimenting with different color spaces or process multiple i
   - `hsl_histogram_equalizer.py`  
   - `abstract_histogram_equalizer.py` (abstract base class)  
 - **`requirements.txt`** — Lists the dependencies.  
-
----
-
-## 🌟 Example Outputs
-
-<h4 align="center">Original Image vs Processed Image Using Grayscale color space</h4>
-
-<img src="Images/nature.jpg" width="400" /> <img src="Images/image_3_grayscale_output.jpg" width="400" />
-
-<h4 align="center">Original Image vs Processed Image Using YCbCr color space</h4>
-
-<img src="Images/stairs.jpg" width="400" /> <img src="Images/image_1_ycbcr_output.jpg" width="400" />
-
-<h4 align="center">Original Image vs Processed Image Using HSV color space</h4>
-
-<img src="Images/tokyo_night.jpg" width="400" /> <img src="Images/image_2_hsv_output.jpg" width="400" />
-
 
 ---
 
