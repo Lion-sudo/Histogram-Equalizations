@@ -119,6 +119,8 @@ For example:
 
 You can continue experimenting with different color spaces or process multiple images before exiting.
 
+---
+
 ## 📁 Project Structure
 
 - **`histogram_equalization.py`** — Main script for running the program.  
